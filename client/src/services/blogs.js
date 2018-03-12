@@ -40,4 +40,28 @@ function getBlog(id) {
     });
 }
 
-export { getAllBlogs, getBlog };
+function updateBlog(id, currentEdit) {
+    return baseService.makeFetch(`/api/blogs/${id}`, {
+        method: 'PUT',
+        mode: 'cors', 
+        redirect: 'follow',
+        body: JSON.stringify({content: currentEdit}), 
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': `${baseService.getAuthToken()}`
+        })
+    })
+    .then((response) => {
+        if (response.ok) {
+            // return response.sendStatus(201);
+            return;
+        } else if (response.status === 401) {
+            return response.json()
+            .then((jsonResponse) => {
+                throw jsonResponse;
+            });
+        }
+    });
+}
+
+export { getAllBlogs, getBlog, updateBlog };

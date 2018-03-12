@@ -42,29 +42,26 @@ class BlogInfo extends Component{
     }
 
     onEditSubmitBtnClick(event){
-        if(this.state.currentEdit.length > 1){
-            fetch(`/api/blogs/${this.props.match.params.id}`,{
-                method: 'PUT',
-                mode: 'cors', 
-                redirect: 'follow',
-                body: JSON.stringify({content: this.state.currentEdit}), 
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                })
-            })
+        let idToSend = this.props.match.params.id;
+        let currentEdit = this.state.currentEdit;
+
+        if(currentEdit.length > 1){
+            blogService.updateBlog(idToSend, currentEdit)
             .then((data) => {
                 // this.setState({editing: false});
-                this.props.history.push(`/`);
+                this.props.history.push(`/blogs`);
             })
             .catch((err) => {
                 console.log(err);
-            })
+            });
+
         }
 
         console.log("state, ", this.state.currentEdit);
     }
 
     render(){
+
         console.log("blog info", this.state);
         
         if(!this.state.editing){
