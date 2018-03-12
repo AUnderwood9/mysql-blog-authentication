@@ -8,6 +8,7 @@ import Logout from './auth/logout';
 import AuthButton from './auth/authButton';
 import WelcomePage from "./pages/Home";
 import BlogListing from "./pages/BlogListing";
+import BlogInfo from "./pieces/BlogInfo";
 
 class Navigation extends Component {
 
@@ -24,6 +25,7 @@ class Navigation extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/logout" component={Logout} />
                         <PrivateRoute path="/blogs" component={BlogListing} />
+                        <PrivateRoute path="/:id" component={BlogInfo} />
                         <PrivateRoute path="/hello" component={HelloWorld} />
                         <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
                     </Switch>

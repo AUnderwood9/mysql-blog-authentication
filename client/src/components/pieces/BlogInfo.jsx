@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Blog from "./BlogView";
 import EditBox from "./BlogEditBox";
+import * as blogService from "../../services/blogs";
 
 class BlogInfo extends Component{
     constructor(props){
@@ -21,17 +22,9 @@ class BlogInfo extends Component{
     }
 
     componentDidMount(){
-        fetch(`/api/blogs/${this.props.match.params.id}`)
-        .then((response) => {
-            response.json()
-            .then((data) => {
-                console.log(data);
-                this.setState({blogInfo: data});
-            })
-            .catch((err) => {
-                console.log(err);
-                res.sendStatus(400);
-            });
+        blogService.getBlog(this.props.match.params.id)
+        .then((blogInfo) => {
+            this.setState({blogInfo});
         })
         .catch((err) => {
             console.log(err);

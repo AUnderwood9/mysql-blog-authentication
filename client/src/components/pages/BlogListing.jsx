@@ -67,21 +67,6 @@ class BlogListing extends Component{
             console.log(err);
         });
 
-        // fetch(`/api/blogs/`)
-        // .then((response) => {
-        //     // console.log(response.json().value());
-        //     response.json()
-        //     .then((data) => {
-        //         // console.log(data);
-        //         this.setState({blogList: data });
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     })
-        // })
-        // .catch((err) => {
-        //     console.log(err);
-        // })
     }
 
     render(){
@@ -108,7 +93,7 @@ class BlogListing extends Component{
                                 return (
                                     <Fragment key={`blog-listing-${index}`}>
                                         <Blog blogContent={blogText} title={item.title} timeStamp={item._created}/>
-                                        {/* <Link className="btn btn-sm btn-outline-secondary" to={`/${item.id}`}>Get my Info</Link> */}
+                                        <Link className="btn btn-sm btn-outline-secondary" to={`/${item.id}`}>Get my Info</Link>
                                     </Fragment>
                                 );
                             })
