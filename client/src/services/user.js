@@ -3,6 +3,7 @@ import * as baseService from './base';
 let loggedIn = false;
 
 function isLoggedIn() {
+    // console.log("check log: ", loggedIn);
     return loggedIn;
 }
 

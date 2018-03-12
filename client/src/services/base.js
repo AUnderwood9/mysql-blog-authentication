@@ -76,6 +76,10 @@ function destroy(url, payload) {
     return json(url, 'DELETE', payload);
 }
 
+function getAuthToken(){
+    return authToken;
+}
+
 export {
     setAuthToken,
     populateAuthToken,
@@ -84,5 +88,6 @@ export {
     post,
     put,
     destroy,
-    makeFetch
+    makeFetch,
+    getAuthToken
 };
