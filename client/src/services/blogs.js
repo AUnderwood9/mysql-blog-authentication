@@ -84,4 +84,21 @@ function deleteBlog(id) {
     });
 }
 
-export { getAllBlogs, getBlog, updateBlog, deleteBlog };
+function postBlog(blogObj) {
+    let requestObj = {
+            method: 'POST',
+            body: JSON.stringify(blogObj), 
+            headers: new Headers({
+              'Content-Type': 'application/json',
+              'Authorization': `${baseService.getAuthToken()}`
+            })
+        };
+    return baseService.makeFetch(`/api/blogs/`, requestObj)
+    .catch((err) => {
+        console.log(err);
+        throw err;
+    })
+}
+
+
+export { getAllBlogs, getBlog, updateBlog, deleteBlog, postBlog };

@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Blog from "../pieces/BlogView";
-// import BlogInputs from "../component-pieces/BlogInputs";
-import { getAllBlogs } from "../../services/blogs";
-// import "../index.scss";
-// import "./Home.scss";
+import BlogInputs from "../pieces/BlogInputs";
+import { getAllBlogs, postBlog } from "../../services/blogs";
+// import globalStyle from "../index.scss";
+import homeStyle from "./Home.scss";
 
 class BlogListing extends Component{
     constructor(props){
@@ -15,46 +15,44 @@ class BlogListing extends Component{
             content: "",
             tag: "" };
 
-        // this.onBlogInputChange = this.onBlogInputChange.bind(this);
-        // this.handleInputOnBtnClick = this.handleInputOnBtnClick.bind(this);
+        this.onBlogInputChange = this.onBlogInputChange.bind(this);
+        this.handleInputOnBtnClick = this.handleInputOnBtnClick.bind(this);
     }
 
-    // onBlogInputChange(event){
-    //     // console.log(event.target.id);
-    //     switch(event.target.id){
-    //         case "title-input":
-    //             // console.log("title", event.target.value);
-    //             this.setState({title: event.target.value});
-    //         break;
-    //         case "content-input":
-    //             // console.log("content", event.target.value);
-    //             this.setState({content: event.target.value});
-    //         break;
-    //         case "tag-input":
-    //             // console.log("tag", event.target.value);
-    //             this.setState({tag: event.target.value});
-    //         break;
-    //     }
-    // }
+    onBlogInputChange(event){
+        // console.log(event.target.id);
+        switch(event.target.id){
+            case "title-input":
+                // console.log("title", event.target.value);
+                this.setState({title: event.target.value});
+            break;
+            case "content-input":
+                // console.log("content", event.target.value);
+                this.setState({content: event.target.value});
+            break;
+            case "tag-input":
+                // console.log("tag", event.target.value);
+                this.setState({tag: event.target.value});
+            break;
+        }
+    }
 
-    // handleInputOnBtnClick(event){
-    //     if(this.state.title.length < 1 || this.state.content.length < 1 || this.state.tag < 1){
-    //         console.log("Invalid input, put something in the input fields!");
-    //     }
-    //     else{
-    //         console.log("Title: ", this.state.title, "Content: ", this.state.content, "Tags: ", this.state.tag);
-    //         fetch(`/api/blogs/`, {
-    //             method: 'POST',
-    //             body: JSON.stringify({title: this.state.title, content: this.state.content, tag: this.state.tag}), 
-    //             headers: new Headers({
-    //               'Content-Type': 'application/json'
-    //             })
-    //         })
-    //         .catch((err) => {
-    //             res.sendStatus(400);
-    //         });
-    //     }
-    // }
+    handleInputOnBtnClick(event){
+        // event.preventDefault();
+        if(this.state.title.length < 1 || this.state.content.length < 1 || this.state.tag < 1){
+            console.log("Invalid input, put something in the input fields!");
+        }
+        else{
+            console.log("Title: ", this.state.title, "Content: ", this.state.content, "Tags: ", this.state.tag);
+
+            let blogToPost = {title: this.state.title, content: this.state.content, tag: this.state.tag};
+            postBlog(blogToPost);
+            console.log("Done");
+            // this.props.history.push(`/blogs`);
+        }
+
+        
+    }
 
 
     componentDidMount(){
@@ -77,7 +75,7 @@ class BlogListing extends Component{
         let blogText;
 
         return(
-            <div className="row homeContainer">
+            <div className={`row ${homeStyle.homeComponent}`}>
                 <section id="blog-list" className="col-6">
                         {
                             this.state.blogList.map((item,index) => {
@@ -100,9 +98,9 @@ class BlogListing extends Component{
                         }
                 </section>
 
-                {/* <section id="inputs" className="col-6"> */}
-                        {/* <BlogInputs onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/> */}
-                {/* </section> */}
+                <section id="inputs" className="col-6">
+                        <BlogInputs onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/>
+                </section>
             </div>
         );
     }

@@ -16,10 +16,12 @@ class Navigation extends Component {
         return (
             <Router>
                 <Fragment>
-                    <Link to="/goodbye">Goodbye</Link>
-                    <Link to="/hello">Hello</Link>
-                    <AuthButton />
-                    <Link to="/blogs">View Blogs</Link>
+                    <div className="btn-toolbar" role="group">
+                        <Link to="/goodbye" className="btn btn-outline-secondary ml-2">Goodbye</Link>
+                        <Link to="/hello" className="btn btn-outline-secondary ml-2">Hello</Link>
+                        <Link to="/blogs" className="btn btn-outline-secondary">View Blogs</Link>
+                        <AuthButton />
+                    </div>
                     <Switch>
                         <Route exact path="/" component={WelcomePage} />
                         <Route path="/login" component={Login} />

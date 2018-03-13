@@ -30,9 +30,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    let tagSet1 = ["web-enabled", "Multi-lateral", "orchestration", "komposer", "pgadmin"];
+    // let tagSet1 = ["web-enabled", "Multi-lateral", "orchestration", "komposer", "pgadmin"];
     let setToSend = {title: req.body.title, content: req.body.content};
-    console.log(req.body);
     blogTable.insert(setToSend)
     .then((data) => {
         return data.id;

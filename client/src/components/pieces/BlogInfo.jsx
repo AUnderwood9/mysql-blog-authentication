@@ -25,7 +25,7 @@ class BlogInfo extends Component{
             console.log(err);
             throw err;
         })
-        // this.props.history.push(`/blogs`);
+        this.props.history.push(`/blogs`);
     }
 
     componentDidMount(){
