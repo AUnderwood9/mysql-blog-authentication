@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Blog from "../pieces/BlogView";
 import BlogInputs from "../pieces/BlogInputs";
 import { getAllBlogs, postBlog } from "../../services/blogs";
+import { Route } from "react-router-dom";
 // import globalStyle from "../index.scss";
 import homeStyle from "./Home.scss";
 
@@ -89,18 +90,31 @@ class BlogListing extends Component{
                                 }
                                 
                                 return (
-                                    <Fragment key={`blog-listing-${index}`}>
+                                    <div key={`blog-listing-${index}`} className="card mt-4">
                                         <Blog blogContent={blogText} title={item.title} timeStamp={item._created}/>
                                         <Link className="btn btn-sm btn-outline-secondary" to={`/${item.id}`}>Get my Info</Link>
-                                    </Fragment>
+                                    </div>
                                 );
                             })
                         }
                 </section>
 
-                <section id="inputs" className="col-6">
+                <Route
+                path="/newBlog"
+                render={(routeProps) => (
+                    <BlogInputs {...routeProps} onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick} />
+                )}
+                />
+
+                {/* <section id="inputs" className="col-6"> 
+                        <Route
+                        path="/newBlog"
+                        render={(routeProps) => (
+                            <BlogInputs {...routeProps} onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick} />
+                        )}
+                        />
                         <BlogInputs onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/>
-                </section>
+                </section> */}
             </div>
         );
     }

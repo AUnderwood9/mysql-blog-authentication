@@ -20,6 +20,7 @@ class Navigation extends Component {
                         <Link to="/goodbye" className="btn btn-outline-secondary ml-2">Goodbye</Link>
                         <Link to="/hello" className="btn btn-outline-secondary ml-2">Hello</Link>
                         <Link to="/blogs" className="btn btn-outline-secondary">View Blogs</Link>
+                        <Link to="/newBlog" className="btn btn-outline-info">Add a new Blog!</Link>
                         <AuthButton />
                     </div>
                     <Switch>
