@@ -97,7 +97,8 @@ router.delete("/:id", (req, res, next) => {
     .then((res) => {
         blogTable.delete(req.params.id)
         .then((data) => {
-            res.sendStatus(200);
+            // res.sendStatus(200);
+            return;
         })
         .catch((err) => {
             console.log(err);

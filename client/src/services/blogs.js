@@ -64,4 +64,24 @@ function updateBlog(id, currentEdit) {
     });
 }
 
-export { getAllBlogs, getBlog, updateBlog };
+function deleteBlog(id) {
+    return baseService.makeFetch(`/api/blogs/${id}`, {
+        method: 'DELETE',
+        headers: new Headers({
+            'Authorization': `${baseService.getAuthToken()}`
+        })
+    })
+    .then((response) => {
+        if (response.ok) {
+            // return response.sendStatus(201);
+            return;
+        } else if (response.status === 401) {
+            return response.json()
+            .then((jsonResponse) => {
+                throw jsonResponse;
+            });
+        }
+    });
+}
+
+export { getAllBlogs, getBlog, updateBlog, deleteBlog };

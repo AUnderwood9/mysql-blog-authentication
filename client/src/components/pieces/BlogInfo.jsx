@@ -14,11 +14,18 @@ class BlogInfo extends Component{
     }
 
     onBlogBtnClick(event){
-        fetch(`/api/blogs/${this.props.match.params.id}`, {
-            method: 'DELETE'
-        });
-
-        this.props.history.push("/");
+        // fetch(`/api/blogs/${this.props.match.params.id}`, {
+        //     method: 'DELETE'
+        // });
+        blogService.deleteBlog(this.props.match.params.id)
+        .then((result) => {
+            this.props.history.push(`/blogs`);
+        })
+        .catch((err) => {
+            console.log(err);
+            throw err;
+        })
+        // this.props.history.push(`/blogs`);
     }
 
     componentDidMount(){
