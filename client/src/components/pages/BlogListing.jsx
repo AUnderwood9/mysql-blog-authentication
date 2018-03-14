@@ -90,8 +90,8 @@ class BlogListing extends Component{
                                     }
                                     
                                     return (
-                                        <div className="col-4 mt-3 mb-3">
-                                            <div key={`blog-listing-${index}`} className={`card-deck`}>
+                                        <div key={`blog-listing-${index}`}  className="col-4 mt-3 mb-3">
+                                            <div className={`card-deck`}>
                                                 <div className="card">
                                                     <Blog blogContent={blogText} title={item.title} timeStamp={item._created} className="card-body"/>
                                                     <Link className="btn btn-sm btn-outline-secondary" to={`/${item.id}`}>Get my Info</Link>

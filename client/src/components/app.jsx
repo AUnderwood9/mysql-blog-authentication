@@ -11,17 +11,21 @@ import BlogListing from "./pages/BlogListing";
 import BlogInfo from "./pieces/BlogInfo";
 import ToolBar from './pieces/ToolBar';
 
+import Global from "./index.scss";
+
 class Navigation extends Component {
 
     render() {
         return (
             <Router>
                 <div className="jumbotron row">
-                    <div className="col-4">
-                        <ToolBar />
+                    <div className="jumbotron">
+                        <div className={`col-2 ${Global.fixed}`}>
+                            <ToolBar/>
+                        </div>
                     </div>
                 
-                    <div className="col-8">
+                    <div className="col-10">
                         <Switch>
                             <Route exact path="/" component={WelcomePage} />
                             <Route path="/login" component={Login} />
