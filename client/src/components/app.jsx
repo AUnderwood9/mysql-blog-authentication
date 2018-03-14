@@ -5,34 +5,34 @@ import GoodbyeWorld from './goodbye';
 import PrivateRoute from './auth/privateRoute';
 import Login from './auth/login';
 import Logout from './auth/logout';
-import AuthButton from './auth/authButton';
+
 import WelcomePage from "./pages/Home";
 import BlogListing from "./pages/BlogListing";
 import BlogInfo from "./pieces/BlogInfo";
+import ToolBar from './pieces/ToolBar';
 
 class Navigation extends Component {
 
     render() {
         return (
             <Router>
-                <Fragment>
-                    <div className="btn-toolbar" role="group">
-                        <Link to="/goodbye" className="btn btn-outline-secondary ml-2">Goodbye</Link>
-                        <Link to="/hello" className="btn btn-outline-secondary ml-2">Hello</Link>
-                        <Link to="/blogs" className="btn btn-outline-secondary">View Blogs</Link>
-                        <Link to="/newBlog" className="btn btn-outline-info">Add a new Blog!</Link>
-                        <AuthButton />
+                <div className="jumbotron row">
+                    <div className="col-4">
+                        <ToolBar />
                     </div>
-                    <Switch>
-                        <Route exact path="/" component={WelcomePage} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/logout" component={Logout} />
-                        <PrivateRoute path="/blogs" component={BlogListing} />
-                        <PrivateRoute path="/:id" component={BlogInfo} />
-                        <PrivateRoute path="/hello" component={HelloWorld} />
-                        <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
-                    </Switch>
-                </Fragment>
+                
+                    <div className="col-8">
+                        <Switch>
+                            <Route exact path="/" component={WelcomePage} />
+                            <Route path="/login" component={Login} />
+                            <Route path="/logout" component={Logout} />
+                            <PrivateRoute path="/blogs" component={BlogListing} />
+                            <PrivateRoute path="/:id" component={BlogInfo} />
+                            <PrivateRoute path="/hello" component={HelloWorld} />
+                            <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
+                        </Switch>
+                    </div >
+                </div>
             </Router>
         )
     }

@@ -76,28 +76,32 @@ class BlogListing extends Component{
         let blogText;
 
         return(
-            <div className={`row ${homeStyle.homeComponent}`}>
-                <section id="blog-list" className="col-6">
-                        {
-                            this.state.blogList.map((item,index) => {
-                                // console.log(item.title, item.content, item._created);
-                                if(item.content.length > 240 && typeof item.content === 'string'){
-                                    // truncate text if it is too long
-                                    blogText= item.content.slice(0,240).trim() + " ...";
-                                }
-                                else{
-                                    blogText = item.content;
-                                }
-                                
-                                return (
-                                    <div key={`blog-listing-${index}`} className="card mt-4">
-                                        <Blog blogContent={blogText} title={item.title} timeStamp={item._created}/>
-                                        <Link className="btn btn-sm btn-outline-secondary" to={`/${item.id}`}>Get my Info</Link>
-                                    </div>
-                                );
-                            })
-                        }
-                </section>
+            <div className={`jumbotron ${homeStyle.homeComponent}`}>
+                    <div className="row">
+                            {
+                                this.state.blogList.map((item,index) => {
+                                    // console.log(item.title, item.content, item._created);
+                                    if(item.content.length > 240 && typeof item.content === 'string'){
+                                        // truncate text if it is too long
+                                        blogText= item.content.slice(0,240).trim() + " ...";
+                                    }
+                                    else{
+                                        blogText = item.content;
+                                    }
+                                    
+                                    return (
+                                        <div className="col-4 mt-3 mb-3">
+                                            <div key={`blog-listing-${index}`} className={`card-deck`}>
+                                                <div className="card">
+                                                    <Blog blogContent={blogText} title={item.title} timeStamp={item._created} className="card-body"/>
+                                                    <Link className="btn btn-sm btn-outline-secondary" to={`/${item.id}`}>Get my Info</Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
 
                 <Route
                 path="/newBlog"
