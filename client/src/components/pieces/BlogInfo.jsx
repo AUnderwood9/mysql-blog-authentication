@@ -56,7 +56,7 @@ class BlogInfo extends Component{
             blogService.updateBlog(idToSend, currentEdit)
             .then((data) => {
                 // this.setState({editing: false});
-                this.props.history.push(`/blogs`);
+                this.props.history.push(`/`);
             })
             .catch((err) => {
                 console.log(err);
@@ -83,7 +83,6 @@ class BlogInfo extends Component{
                         onClick={(event) => {this.onBlogBtnClick(event)}}
                     >Delete me!</button>
                 </Fragment>
-                
             );
         }else{
             return(

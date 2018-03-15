@@ -11,7 +11,6 @@ let router = Router();
 router.use('/auth', authRouter);
 
 router.route('*')
-    .get(tokenMiddleware, isLoggedIn)
     .post(tokenMiddleware, isLoggedIn)
     .put(tokenMiddleware, isLoggedIn)
     .delete(tokenMiddleware, isLoggedIn);
