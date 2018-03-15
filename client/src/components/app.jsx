@@ -11,6 +11,7 @@ import BlogListing from "./pages/BlogListing";
 import BlogInfo from "./pieces/BlogInfo";
 import ToolBar from './pieces/ToolBar';
 import InputPage from "./pages/InputContainer";
+import Donate from "./pieces/Donate";
 
 import Global from "./index.scss";
 
@@ -34,15 +35,11 @@ class Navigation extends Component {
                                 <Route path="/login" component={Login} />
                                 <Route path="/logout" component={Logout} />
                                 <Route path="/blogs" component={BlogListing} />
+                                {/* <Route path="/contact" component={Contact} /> */}
+                                <Route path="/donate" component={Donate} />
                                 <PrivateRoute path="/newBlog" component={InputPage} />
                                 <PrivateRoute path="/hello" component={HelloWorld} />
                                 <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
-                                {/* <PrivateRoute 
-                                    path="/newBlog" 
-                                    render={(routeProps) => {
-                                        return <BlogInputs {...routeProps} onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/>
-                                    }}
-                                    /> */}
                                 <PrivateRoute path="/:id" component={BlogInfo}/>
                             </Switch>
                         </div >
