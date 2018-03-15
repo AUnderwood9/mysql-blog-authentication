@@ -10,18 +10,22 @@ import WelcomePage from "./pages/Home";
 import BlogListing from "./pages/BlogListing";
 import BlogInfo from "./pieces/BlogInfo";
 import ToolBar from './pieces/ToolBar';
+import InputPage from "./pages/InputContainer";
 
 import Global from "./index.scss";
 
 class Navigation extends Component {
+    constructor(props){
+        super(props);
+    }
 
     render() {
         return (
             <Router>
-                <div className="container-fluid h-100">
+                <div className="container-fluid">
                     <div className="row">
-                            <div className={`col-2 py-2 d-flex align-items-center justify-content-center mt-5 fixed-top`}>
-                                <ToolBar/>
+                            <div className={`jumbotron col-2 py-2 d-flex align-items-center justify-content-center fixed-top ${Global.fixedCol}`}>
+                                <ToolBar onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/>
                             </div>
                         {/* <div className="col-sm-6 invisible col-2">hidden spacer</div> */}
                         <div className="col-10 offset-2 py-2">
@@ -30,9 +34,16 @@ class Navigation extends Component {
                                 <Route path="/login" component={Login} />
                                 <Route path="/logout" component={Logout} />
                                 <Route path="/blogs" component={BlogListing} />
+                                <PrivateRoute path="/newBlog" component={InputPage} />
                                 <PrivateRoute path="/hello" component={HelloWorld} />
                                 <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
-                                <PrivateRoute exact path="/:id" component={BlogInfo} />
+                                {/* <PrivateRoute 
+                                    path="/newBlog" 
+                                    render={(routeProps) => {
+                                        return <BlogInputs {...routeProps} onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/>
+                                    }}
+                                    /> */}
+                                <PrivateRoute path="/:id" component={BlogInfo}/>
                             </Switch>
                         </div >
                     </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AuthButton from '../auth/authButton';
 
 function ToolBar(props){
+    console.log("Tool-bar Props", props);
 
     return(
         <div className={`btn-group-vertical ${props.styling}`} role="group">
