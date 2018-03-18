@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 
 
 function BlogInputs(props){
-    console.log(props);
+    // console.log(props);
     return(
         <Fragment>
             <form>

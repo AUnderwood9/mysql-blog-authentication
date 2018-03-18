@@ -1,9 +1,11 @@
+@import "/../../__variables";
+
 .homeComponent{
-    background: rgba(palegoldenrod, 0.08);
+    background: $primaryTheme;
     p{
         color: blue;
     }
     .card{
-        background: rgba(#B2AF87, 0.1);
+        background: $ternaryTheme;
     }
 }

@@ -7,6 +7,8 @@ import Login from './auth/login';
 import Logout from './auth/logout';
 import Contact from "./pieces/contact";
 
+import logo from "../../resources/img/gusta.svg";
+
 import WelcomePage from "./pages/Home";
 import BlogListing from "./pages/BlogListing";
 import BlogInfo from "./pieces/BlogInfo";
@@ -15,6 +17,7 @@ import InputPage from "./pages/InputContainer";
 import Donate from "./pieces/Donate";
 
 import Global from "./index.scss";
+import FormStyle from "./checkoutStyle.scss"
 
 class Navigation extends Component {
     constructor(props){
@@ -24,13 +27,20 @@ class Navigation extends Component {
     render() {
         return (
             <Router>
-                <div className="container-fluid">
+                <div className={`container-fluid`}>
                     <div className="row">
-                            <div className={`jumbotron col-2 py-2 d-flex align-items-center justify-content-center fixed-top ${Global.fixedCol}`}>
-                                <ToolBar onBlogInputChange={this.onBlogInputChange} btnHandler={this.handleInputOnBtnClick}/>
+                            <div className={`jumbotron col-2 py-2 align-items-center justify-content-center fixed-top ${Global.fixedCol}`}>
+                                <div className={`${Global.logo} mt-5 mb-5`}>
+                                    {/* <span className="imgPlaceholder col-2"></span> */}
+                                    <img src={logo}/>
+                                    <h1>The Dankening</h1>
+                                    <h3 className="col-8">Say What you mean!</h3>
+                                </div>
+    
+                                <ToolBar/>
                             </div>
                         {/* <div className="col-sm-6 invisible col-2">hidden spacer</div> */}
-                        <div className="col-10 offset-2 py-2">
+                        <div className={`col-10 offset-2 py-2  ${Global.backGroundTheme}`}>
                             <Switch>
                                 <Route exact path="/" component={BlogListing} />
                                 <Route path="/login" component={Login} />
