@@ -17,16 +17,19 @@ class CheckoutForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        console.log("Event Running");
 
         this.props.stripe.createToken({name: this.state.customerName })
         .then(({token}) => {
             postCharge({ id: token.id, amount: +this.state.customerAmount });
+            // console.log(postCharge);
+            window.location = "/";
         })
         .catch((err) => {
             console.log(err);
         });
 
-        window.location = "/";
+        // window.location = "/";
     }
 
     handleNameInput(e) {

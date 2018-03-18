@@ -1,3 +1,5 @@
+// const vars = require('dotenv').config();
+// console.log("Variables", vars);
 import { join } from 'path';
 import express from 'express';
 import morgan from 'morgan';

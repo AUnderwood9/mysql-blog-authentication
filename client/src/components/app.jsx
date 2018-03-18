@@ -5,6 +5,7 @@ import GoodbyeWorld from './goodbye';
 import PrivateRoute from './auth/privateRoute';
 import Login from './auth/login';
 import Logout from './auth/logout';
+import Contact from "./pieces/contact";
 
 import WelcomePage from "./pages/Home";
 import BlogListing from "./pages/BlogListing";
@@ -37,6 +38,7 @@ class Navigation extends Component {
                                 <Route path="/blogs" component={BlogListing} />
                                 {/* <Route path="/contact" component={Contact} /> */}
                                 <Route path="/donate" component={Donate} />
+                                <Route path="/contact" component={Contact} />
                                 <PrivateRoute path="/newBlog" component={InputPage} />
                                 <PrivateRoute path="/hello" component={HelloWorld} />
                                 <PrivateRoute path="/goodbye" component={GoodbyeWorld} />
