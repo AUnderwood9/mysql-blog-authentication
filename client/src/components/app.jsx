@@ -57,7 +57,7 @@ class Navigation extends Component {
                         {/* <div className="col-sm-6 invisible col-2">hidden spacer</div> */}
                         <div className={`col-10 offset-2 py-2  ${Global.backGroundTheme}`}>
                             <Switch>
-                                <Route exact path="/" component={BlogListing} />
+                                <Route exact path="/" component={BlogListing} />    
                                 <Route path="/login" component={Login} />
                                 <Route path="/logout" component={Logout} />
                                 <Route path="/blogs" component={BlogListing} />

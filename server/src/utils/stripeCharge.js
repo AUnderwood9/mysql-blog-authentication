@@ -3,6 +3,7 @@ import stripeLoader from 'stripe';
 // console.log("Variables", vars);
 import dotenv from "dotenv";
 const ENV_VARS = dotenv.config();
+// console.log(ENV_VARS);
 const stripe = stripeLoader(ENV_VARS.parsed.STRIPE_SK); // define secret key in ENV_VAR
 // console.log("Enviornment", ENV_VARS.parsed.STRIPE_SK);
 

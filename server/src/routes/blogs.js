@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
         res.json(response);
     })
     .catch((err) => {
-        console.log(err);
+        console.log("bad", err);
         res.sendStatus(400);
     });
 

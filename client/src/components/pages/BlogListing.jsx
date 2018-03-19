@@ -63,7 +63,7 @@ class BlogListing extends Component{
             this.setState({blogList: data });
         })
         .catch((err) => {
-            console.log(err);
+            console.log("mount request", err);
         });
 
     }
