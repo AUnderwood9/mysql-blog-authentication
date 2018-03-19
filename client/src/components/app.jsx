@@ -47,9 +47,9 @@ class Navigation extends Component {
                             <div className={`jumbotron col-2 py-2 align-items-center justify-content-center fixed-top ${Global.fixedCol}`}>
                                 <div className={`${Global.logo} mt-5 mb-5`}>
                                     {/* <span className="imgPlaceholder col-2"></span> */}
-                                    <img src={logo} className={`${Global.logoPlaceholder}`}/>
+                                    <img src={logo} className={`ml-4 ${Global.logoPlaceholder}`}/>
                                     <h1>The Dankening</h1>
-                                    <h3 className="col-8">Say What you mean!</h3>
+                                    <h3>Say What you mean!</h3>
                                 </div>
     
                                 <ToolBar/>
