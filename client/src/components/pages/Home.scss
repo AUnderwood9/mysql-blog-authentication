@@ -8,4 +8,21 @@
     .card{
         background: $ternaryTheme;
     }
+    .card:hover{
+        background: $ternaryThemeHover;
+        box-shadow: 2px 2px 2px 2px $secondaryColor;
+    }
+}
+
+.homeComponent:hover{
+    background: $primaryThemeHover;
+}
+
+.mainHeading{
+    text-align: center;
+    color: $secondaryTheme;
+}
+
+.mainHeading:hover{
+    text-shadow: 1px 0px 20px yellow;
 }

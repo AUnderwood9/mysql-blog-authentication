@@ -69,7 +69,8 @@ class BlogInfo extends Component{
 
     render(){
 
-        console.log("blog info", this.state);
+        // console.log("blog info", this.state);
+
         
         if(!this.state.editing){
             return(

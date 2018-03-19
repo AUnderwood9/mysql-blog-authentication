@@ -1,7 +1,9 @@
 import { Router } from "express";
 import Table from "../table";
 import { FindElementsInSet, FilterForIds } from "../myUtilities";
+import BBCodeParser from "bbcode-parser";
 
+let parser = new BBCodeParser(BBCodeParser.defaultTags());
 let router = Router();
 const blogTable = new Table("blogs");
 const tagTable = new Table("tags");
@@ -10,6 +12,9 @@ const blogTagTable = new Table("blogtags");
 router.get('/:id', (req, res) => {
     blogTable.getOne(req.params.id)
     .then((response) => {
+            response.content = parser.parseString(response.content);
+            console.log(response.content);
+
         res.json(response);
     })
     .catch((err) => {
@@ -20,6 +25,11 @@ router.get('/:id', (req, res) => {
 router.get('/', (req, res) => {
     blogTable.getAll()
     .then((response) => {
+        response.forEach((item) => {
+            // console.log(item.content);
+            item.content = parser.parseString(item.content);
+            console.log(item.content);
+        })
         res.json(response);
     })
     .catch((err) => {

@@ -1,3 +1,9 @@
-$primaryTheme: rgba(palegoldenrod, 0.4);
-$secondaryTheme: rgba(#7EA8B2, 1);
-$ternaryTheme: rgba(#B2AF87, 0.5);
+$primaryColor: palegoldenrod;
+$secondaryColor: #7EA8B2;
+$ternaryColor: #B2AF87;
+
+$primaryTheme: rgba($primaryColor, 0.4);
+$secondaryTheme: rgba($secondaryColor, 1);
+$ternaryTheme: rgba($ternaryColor, 0.5);
+$ternaryThemeHover: rgba($ternaryColor, 1);
+$primaryThemeHover: rgba($primaryColor, 0.65);

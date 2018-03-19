@@ -77,6 +77,8 @@ class BlogListing extends Component{
 
         return(
             <div className={`jumbotron ${homeStyle.homeComponent}`}>
+            
+                <h1 className={`${homeStyle.mainHeading}`}>All the blogs!</h1>
                     <div className="row">
                             {
                                 this.state.blogList.map((item,index) => {
